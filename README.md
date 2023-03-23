@@ -3,17 +3,11 @@
 
 Instalacja i uruchomienie
 
-  npm i
-  npm start
+  - npm i
+  - npm start
 
 
-
-1. Tytuł projektu
-
-"Kalkulator darowizny w walucie obcej"
-
-
-2. Użyte technologie i biblioteki
+Użyte technologie i biblioteki
 - HTML
 - CSS / Sass
 - JavaScript
@@ -21,7 +15,7 @@ Instalacja i uruchomienie
 - Font Awesome
 
 
-3. Opis projektu
+Opis projektu
 
 "Kalkulator" to aplikacja łącząca w sobie 2 narzędzia:
 - kalkulator walutowy
@@ -50,7 +44,7 @@ Menu z listą walut obcych wypełnia się po otrzymaniu tabeli z NBP.
 Ponowne zapytania do tej samej daty (nawet po wielokrotnej zmianie daty) zwracane są z obiektu w aplikacji celem oszczędności zasobów oraz przyspieszeniem działania.
 
 
-4. Budowa projektu
+Budowa projektu
 
 Projekt składa się z 4 stron:
 - strona startowa z opisem
