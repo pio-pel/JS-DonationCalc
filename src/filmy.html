@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kalkulator darowizny z walucie obcej</title>
+<link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="scss/main.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/4c0922e2e2.js" crossorigin="anonymous"></script>
+<script type="module" src="js/app.js" defer></script>
+
+</head>
+
+
+
+<body> 
+  <div id="burgerButton" style="display: inline">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="./index.html"><i class="fa-solid fa-house"></i></i> główna</a>
+    <a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i> kalkulator</a>
+    <a href="./formularze.html"><i class="fa-solid fa-file"></i> formularze</a>
+    <a href="./filmy.html"><i class="fa-solid fa-film"></i></i></i> filmy</a>
+  </div>
+  
+  <div id="header" class="container-fluid pb-3 pt-5 text-white">
+    <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
+    <div>
+    <h1>Kalkulator podatku od darowizny</h1>
+    <p>Narzędzie do obliczania podatku od darowizn w dowolnej walucie</p>
+    </div>
+  </div>
+  
+  <div id="main" class="container">
+    <div class="row">
+    <div class="col-md d-flex flex-column my-3 align-items-center">
+      <h4>OBOWIĄZKI&nbsp;PODATNIKA</h4>
+      <iframe width="350px" height="200px" src="https://www.youtube.com/embed/ycp6ZqrjsOo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    
+   <div class="col-md d-flex flex-column my-3 align-items-center">
+    <h4>FORMULARZ SD-Z2</h4>
+      <iframe width="350px" height="200px" src="https://www.youtube.com/embed/ZRjsYNkKcP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="col-md d-flex flex-column my-3 align-items-center">
+      <h4>FORMULARZ SD-3</h4>
+      <iframe width="350px" height="200px" src="https://www.youtube.com/embed/UgAowKyL7EI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    </div>
+  </div>
+ 
+
+  <div id="footer" class="container-fluid my-1 text-white">
+    <div><i class="fa-solid fa-copyright"></i> Piotr Pelikan
+    </div>
+  </div>    
+
+</body>
+
+<script type="module">
+  import { buttonMenu } from "./js/_app";
+  const menuOpen = document.querySelector("#burgerButton");
+  menuOpen.addEventListener("click", e => { buttonMenu() });
+  </script>
+</html>

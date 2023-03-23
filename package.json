@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.8.3",
+    "parser": "^0.1.4"
+  },
+  "name": "kalkulator",
+  "version": "1.0.0",
+  "description": "Darowizna w walucie obcej KALKULATOR",
+  
+  "dependencies": {
+    "command": "^0.0.1",
+    "disect": "^1.1.1",
+    "tokenizer": "^1.1.2"
+  },
+  "scripts": {
+    "dev": "parcel watch \"src/index.html\"",
+    "serve": "browser-sync start --server dist --files \"dist/*.html, dist/*.css, dist/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all --parallel dev serve"
+  },
+  "keywords": [
+    "darowizna",
+    "waluta",
+    "obca",
+    "kalkulator"
+  ],
+  "author": "Piotr Pelikan",
+  "license": "ISC"
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator darowizny z walucie obcej</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="scss/main.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/4c0922e2e2.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<body> 
+  <div id="burgerButton" style="display: inline">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="./index.html"><i class="fa-solid fa-house"></i></i> główna</a>
+    <a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i> kalkulator</a>
+    <a href="./formularze.html"><i class="fa-solid fa-file"></i> formularze</a>
+    <a href="./filmy.html"><i class="fa-solid fa-film"></i></i></i> filmy</a>
+  </div>
+  
+  <div id="header" class="container-fluid pb-3 pt-5 text-white">
+    <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
+    <div>
+    <h1>Kalkulator podatku od darowizny</h1>
+    <p>Narzędzie do obliczania podatku od darowizn w dowolnej walucie</p>
+    </div>
+  </div>
+  
+  <div id="main" class="container">
+   
+    <div class="row">
+    
+      <div class="col-sm-2 my-3">
+        <div class="d-flex align-items-center" style="height:100%">
+          <div>
+            <i id="donationIco" class="fa-solid fa-hand-holding-dollar fa-8x"></i>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-8 my-3">
+        <div>
+          <h4>Kalkulator darowizny w walucie obcej</h4>
+          <p>to narzędzie do szybkiego i łatwego przeliczenia darowizny otrzymanej w walucie obcej na równowartość w złotówkach wraz z wyliczeniem należnego podatku.</p>
+        </div>
+        
+        <div>
+          <h4>Co to jest darowizna?</h4>
+          <p style="text-indent: 10px">Art. 888 KC:<em> § 1. Przez umowę darowizny darczyńca zobowiązuje się do bezpłatnego świadczenia na rzecz obdarowanego kosztem swego majątku.</em></p>
+        <p></p>
+        </div>
+        <div>
+          <h4>Co należy zrobić, kiedy otrzyma się darowiznę w walucie obcej?</h4>
+          <p style="text-indent: 10px">Uśmiechnąć się<i class="fa-regular fa-face-smile"></i> Następnie przeliczyć wartość darowizny po średnim kursie NBP z dnia, w którym ją otrzymaliśmy, sprawdzić, czy należy zapłacic podatek i w jakiej wysokości, a na koniec zgłosić darowiznę na formularzu SD-3 lub SD-Z2 do Urzędu Skarbowego.</p>
+          <p style="text-indent: 10px">Kalkulator wykona za Ciebie niezbędne obliczenia. W <b>menu -> formularze</b> znajdziesz dokumenty do zgłoszenia darowizny ze strony podatki.gov.pl. W <b>menu -> filmy</b> znajdują się krótkie poradniki dot. darowizn przygotowane przez Ministerstwo Finansów.</p>
+        </div>
+        <div>
+          <h4>Zaczynamy?</h4>
+          <div class="countArea">
+            <div id="toCalc"><a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i> Kalkulator</a></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+
+  <div id="footer" class="container-fluid my-1 text-white">
+    <div><i class="fa-solid fa-copyright"></i> Piotr Pelikan</div>   
+  </div>
+
+</body>
+
+<script type="module">
+  import { buttonMenu } from "./js/_app";
+  const menuOpen = document.querySelector("#burgerButton");
+  menuOpen.addEventListener("click", e => { buttonMenu() });
+  </script>
+  
+</html>

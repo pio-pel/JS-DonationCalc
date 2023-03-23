@@ -1,0 +1,31 @@
+.item1 { grid-area: aaa; }
+.item2 { grid-area: bbb; }
+.item3 { grid-area: ccc; }
+.item4 { grid-area: ddd; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'aaa aaa aaa aaa'
+  'bbb bbb bbb ccc'
+  'bbb bbb bbb ccc'
+  'bbb bbb bbb ccc'
+  'ddd ddd ddd ddd';
+  background-color: aqua;
+  gap: 1px;
+  padding: 2px;
+  margin: 1%;
+  border: 2px solid;
+  border-radius: 15%;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+#title {
+  background-color: red;
+}
