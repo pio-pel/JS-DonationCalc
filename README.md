@@ -1,11 +1,10 @@
-# kalkulator
+# Kalkulator darowizny w walucie obcej
 
 
 Instalacja i uruchomienie
 
-1. npm i
-2. npm start
-
+  npm i
+  npm start
 
 
 
