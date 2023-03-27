@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 #burgerButton {
@@ -32,7 +33,17 @@ body {
   transition: .4s;
 }
 
-#header, #footer {
+#languageButton {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+}
+
+
+
+#header,
+#footer {
   background: $blue;
   background-image: linear-gradient(to right, $dblue, $blue);
   display: flex;
@@ -42,7 +53,7 @@ body {
 }
 
 
-#header > div {
+#header>div {
   padding-left: 15px;
 }
 
@@ -52,7 +63,7 @@ body {
   height: 0px;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.94);
@@ -64,7 +75,7 @@ body {
   text-align: left;
   margin-left: 20px;
   margin-top: 30px;
-  
+
   text-decoration: none;
   font-size: 25px;
   color: #999999;
@@ -77,16 +88,31 @@ body {
   color: white;
 }
 
-#taxGroup, #calendarGroup, #currencyGroup, #countGroup {
- margin: 5px auto 10px;
+#taxGroup,
+#calendarGroup,
+#currencyGroup,
+#countGroup {
+  margin: 5px auto 10px;
 }
 
-#taxGroupButtons, #taxGroupArea, #calendarGroupButtons, #calendarGroupArea, #currencyGroupButtons, #currencyGroupArea, #countGroupButtons, #countGroupArea, #countGroupButtons {
+#taxGroupButtons,
+#taxGroupArea,
+#calendarGroupButtons,
+#calendarGroupArea,
+#currencyGroupButtons,
+#currencyGroupArea,
+#countGroupButtons,
+#countGroupArea,
+#countGroupButtons {
   padding: 2px;
 }
 
 
-.tButtons, .cButtons, .curButtons, .countArea, .trButtons {
+.tButtons,
+.cButtons,
+.curButtons,
+.countArea,
+.trButtons {
   text-align: center;
   font-weight: bold;
   color: white;
@@ -97,16 +123,19 @@ body {
   padding: 20px 10px;
   cursor: pointer;
   box-shadow: 2px 2px 4px $shadow;
-  }
-  .cButtons {
-    cursor: default;
-    border: none;
-    background-color: rgba(0, 66, 82, 0.849);
-    
-  }
+}
+
+.cButtons {
+  cursor: default;
+  border: none;
+  background-color: rgba(0, 66, 82, 0.849);
+
+}
 
 
-.tArea, .cArea, .curArea {
+.tArea,
+.cArea,
+.curArea {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,6 +149,7 @@ body {
   height: 100%;
   box-shadow: 2px 2px 4px $shadow;
 }
+
 .tArea {
   justify-content: center;
 }
@@ -129,7 +159,7 @@ body {
 }
 
 input {
- width: 200px;
+  width: 200px;
   height: 40px;
   text-align: center;
   font-weight: bold;
@@ -141,15 +171,19 @@ input {
   margin-bottom: 4px;
 }
 
-#calendarInput:invalid, #curSum:invalid {
-border-color: $alert;
+#calendarInput:invalid,
+#curSum:invalid {
+  border-color: $alert;
 }
 
 input:focus {
-outline: 0px solid $dblue;
+  outline: 0px solid $dblue;
 }
 
-.curButtons:hover, .tButtons:hover, .countArea:hover, .trButtons:hover {
+.curButtons:hover,
+.tButtons:hover,
+.countArea:hover,
+.trButtons:hover {
   outline: 3px solid $orange;
 }
 
@@ -160,21 +194,21 @@ input::-webkit-inner-spin-button {
 }
 
 
-  #currencyChooseMenu {
-    height: 200px;
-    overflow: auto;
-  }
+#currencyChooseMenu {
+  height: 200px;
+  overflow: auto;
+}
 
 #currencyChooseMenu::-webkit-scrollbar {
   display: none;
 }
 
-  #currencyChooseMenu > a:hover {
-    background-color: #dddddd;
-  }
+#currencyChooseMenu>a:hover {
+  background-color: #dddddd;
+}
 
 
-  
+
 #resultGroup {
   border: .5px solid $dblue;
   color: $dblue;
@@ -189,13 +223,14 @@ input::-webkit-inner-spin-button {
 }
 
 #toCalc a {
-text-decoration: none;
-color: white;
-font-size: 25px;
-font-weight: normal;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: normal;
 }
 
-#resultHiddenArea, #uwagi {
+#resultHiddenArea,
+#uwagi {
   opacity: 0;
 }
 
@@ -206,8 +241,15 @@ font-weight: normal;
 }
 
 @keyframes zoom {
-  0% {opacity: 0; transform: scale(0);}
-  100% {opacity: 1; ransform: scale(1)}
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    ransform: scale(1)
+  }
 }
 
 .inputerror {

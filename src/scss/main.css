@@ -8,6 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 #burgerButton {
@@ -25,7 +26,15 @@ body {
   transition: .4s;
 }
 
-#header, #footer {
+#languageButton {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+}
+
+#header,
+#footer {
   background: #028caf;
   background-image: linear-gradient(to right, #004152, #028caf);
   display: flex;
@@ -42,7 +51,7 @@ body {
   height: 0px;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.94);
@@ -66,15 +75,30 @@ body {
   color: white;
 }
 
-#taxGroup, #calendarGroup, #currencyGroup, #countGroup {
+#taxGroup,
+#calendarGroup,
+#currencyGroup,
+#countGroup {
   margin: 5px auto 10px;
 }
 
-#taxGroupButtons, #taxGroupArea, #calendarGroupButtons, #calendarGroupArea, #currencyGroupButtons, #currencyGroupArea, #countGroupButtons, #countGroupArea, #countGroupButtons {
+#taxGroupButtons,
+#taxGroupArea,
+#calendarGroupButtons,
+#calendarGroupArea,
+#currencyGroupButtons,
+#currencyGroupArea,
+#countGroupButtons,
+#countGroupArea,
+#countGroupButtons {
   padding: 2px;
 }
 
-.tButtons, .cButtons, .curButtons, .countArea, .trButtons {
+.tButtons,
+.cButtons,
+.curButtons,
+.countArea,
+.trButtons {
   text-align: center;
   font-weight: bold;
   color: white;
@@ -93,7 +117,9 @@ body {
   background-color: rgba(0, 66, 82, 0.849);
 }
 
-.tArea, .cArea, .curArea {
+.tArea,
+.cArea,
+.curArea {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,7 +155,8 @@ input {
   margin-bottom: 4px;
 }
 
-#calendarInput:invalid, #curSum:invalid {
+#calendarInput:invalid,
+#curSum:invalid {
   border-color: #a00000;
 }
 
@@ -137,7 +164,10 @@ input:focus {
   outline: 0px solid #004152;
 }
 
-.curButtons:hover, .tButtons:hover, .countArea:hover, .trButtons:hover {
+.curButtons:hover,
+.tButtons:hover,
+.countArea:hover,
+.trButtons:hover {
   outline: 3px solid #ff9925;
 }
 
@@ -180,7 +210,8 @@ input::-webkit-inner-spin-button {
   font-weight: normal;
 }
 
-#resultHiddenArea, #uwagi {
+#resultHiddenArea,
+#uwagi {
   opacity: 0;
 }
 
