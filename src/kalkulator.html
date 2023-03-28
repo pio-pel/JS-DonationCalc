@@ -24,10 +24,11 @@
   </div>
 
   <div id="mySidenav" class="sidenav">
-    <a href="./index.html"><i class="fa-solid fa-house"></i></i> główna</a>
-    <a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i> kalkulator</a>
-    <a href="./formularze.html"><i class="fa-solid fa-file"></i> formularze</a>
-    <a href="./filmy.html"><i class="fa-solid fa-film"></i></i></i> filmy</a>
+    <a href="./index.html"><i class="fa-solid fa-house">&nbsp;</i><span data-text="mySidenav1">główna</span></a>
+    <a href="./kalkulator.html"><i class="fa-solid fa-calculator">&nbsp;</i><span
+        data-text="mySidenav2">kalkulator</span></a>
+    <a href="./formularze.html"><i class="fa-solid fa-file">&nbsp;</i><span data-text="mySidenav3">formularze</span></a>
+    <a href="./filmy.html"><i class="fa-solid fa-film">&nbsp;</i><span data-text="mySidenav4">filmy</span></a>
   </div>
 
   <div id="languageButton" class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -35,13 +36,13 @@
     <label data-language="pl" class="btn btn-outline-light" for="btnradio1">PL</label>
     <input data-language="en" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
     <label data-language="en" class="btn btn-outline-light" for="btnradio2">EN</label>
-</div>
+  </div>
 
   <div id="header" class="container-fluid pb-3 pt-5 text-white">
     <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
     <div>
       <h1>Kalkulator podatku od darowizny</h1>
-      <p>Narzędzie do obliczania podatku od darowizn w dowolnej walucie</p>
+      <p>Narzędzie do obliczania podatku od darowizn w walutach obcych</p>
     </div>
   </div>
 
@@ -58,7 +59,8 @@
             <div class="tButtons" id="taxThree">III</div>
           </div>
           <div id="taxGroupArea" class="col-10">
-            <div data-text="kalkulator1" class="tArea">Kim jesteś dla darczyńcy? Kliknij w przycisk, aby wybrać odpowiednią grupę podatkową i
+            <div data-text="kalkulator1" class="tArea">Kim jesteś dla darczyńcy? Kliknij w przycisk, aby wybrać
+              odpowiednią grupę podatkową i
               zobaczyć jej opis.<br>UWAGA! Możesz pominąć ten krok, jeśli nie chcesz liczyć należnego podatku.</div>
           </div>
         </div>
@@ -117,7 +119,8 @@
                     Czy na pewno chcesz usunąć wszystkie dane na formularzu?
                   </div>
                   <div class="modal-footer">
-                    <button data-text="kalkulator7" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                    <button data-text="kalkulator7" type="button" class="btn btn-secondary"
+                      data-bs-dismiss="modal">Nie</button>
                     <button data-text="kalkulator8" id="trashButtonYes" type="button" class="btn btn-success"
                       data-bs-dismiss="modal">Tak</button>
                   </div>
@@ -127,7 +130,8 @@
           </div>
           <div id="countGroupArea" class="col-10">
             <div id="countArea" class="countArea">
-              <div id="countClick"><i class="fa-solid fa-calculator"></i> <span data-text="kalkulator9">WYNIK</span></div>
+              <div id="countClick"><i class="fa-solid fa-calculator"></i> <span data-text="kalkulator9">WYNIK</span>
+              </div>
             </div>
           </div>
         </div>
@@ -135,17 +139,18 @@
 
       <div id="right-side" class="col-md-5 my-2">
         <div id="resultGroup" class="container-fluid d-flex flex-column justify-content-between">
-          <div data-text="kalkulator10" class="container-fluid h6 my-2 text-center">Średnie kursy walut NBP wylicza w każdy dzień roboczy. Ceny
+          <div data-text="kalkulator10" class="container-fluid h6 my-2 text-center">Średnie kursy walut NBP wylicza w
+            każdy dzień roboczy. Ceny
             walut publikowane są między godziną 11:45 a 12:15. Kalkulator automatycznie wybierze ostatnie opublikowane
             notowanie.</div>
 
           <div id="resultArea" class="container-fluid h3">
             <div id="resultHiddenArea" class="container fw-bold">
               <div id="waluta" class="d-flex justify-content-center my-3"></div>
-              <div id="notowanie" class="d-flex justify-content-between"></div>
-              <div id="kurs" class="d-flex justify-content-between"></div>
-              <div id="darowizna" class="d-flex justify-content-between"></div>
-              <div id="podatek" class="d-flex justify-content-between"></div>
+              <div id="notowanie" class="d-flex justify-content-between">Notowanie:&nbsp;</div>
+              <div id="kurs" class="d-flex justify-content-between">Kurs:&nbsp;</div>
+              <div id="darowizna" class="d-flex justify-content-between">Darowizna:&nbsp;</div>
+              <div id="podatek" class="d-flex justify-content-between">Podatek:&nbsp;</div>
             </div>
           </div>
           <div id="uwagi" class="container-fluid h6 my-2 text-center"></div>

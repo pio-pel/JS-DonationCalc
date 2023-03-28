@@ -50,6 +50,7 @@ Menu z list¹ walut obcych wype³nia siê po otrzymaniu tabeli z NBP.
 
 Ponowne zapytania do tej samej daty (nawet po wielokrotnej zmianie daty) zwracane s¹ z obiektu w aplikacji celem oszczêdnoœci zasobów oraz przyspieszeniem dzia³ania.
 
+Kalkulator posiada polsk¹ i angielsk¹ wersjê jêzykow¹.
 
 4. Budowa projektu
 
@@ -59,5 +60,7 @@ Projekt sk³ada siê z 4 stron:
 - formularze
 - filmy
 
+
+Zapraszam!
 
 Piotr Pelikan

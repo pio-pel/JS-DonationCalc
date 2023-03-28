@@ -4,10 +4,8 @@ $orange: #ff9925;
 $shadow: #505050;
 $alert: #a00000;
 
-
 * {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: 1px 1px 4px $shadow;
 }
 
 body {
@@ -15,7 +13,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-x: hidden;
 }
 
 #burgerButton {
@@ -33,12 +30,13 @@ body {
   transition: .4s;
 }
 
-#languageButton {
+#languageButton, #btnradio1, #btnradio2 {
   position: absolute;
   top: 8px;
   right: 10px;
   color: white;
 }
+
 
 
 
@@ -50,6 +48,7 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px 4px $shadow;
+  text-shadow: 2px 2px 4px $shadow;
 }
 
 

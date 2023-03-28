@@ -18,19 +18,22 @@
 
 
 <body>
-    <div id="burgerButton" style="display: inline">
+    <div id="burgerButton">
         <i class="fa-solid fa-bars"></i>
     </div>
 
     <div id="mySidenav" class="sidenav">
-        <a href="./index.html"><i class="fa-solid fa-house"></i></i> główna</a>
-        <a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i> kalkulator</a>
-        <a href="./formularze.html"><i class="fa-solid fa-file"></i> formularze</a>
-        <a href="./filmy.html"><i class="fa-solid fa-film"></i></i></i> filmy</a>
+        <a href="./index.html"><i class="fa-solid fa-house">&nbsp;</i><span data-text="mySidenav1">główna</span></a>
+        <a href="./kalkulator.html"><i class="fa-solid fa-calculator">&nbsp;</i><span
+                data-text="mySidenav2">kalkulator</span></a>
+        <a href="./formularze.html"><i class="fa-solid fa-file">&nbsp;</i><span
+                data-text="mySidenav3">formularze</span></a>
+        <a href="./filmy.html"><i class="fa-solid fa-film">&nbsp;</i><span data-text="mySidenav4">filmy</span></a>
     </div>
 
     <div id="languageButton" class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input data-language="pl" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <input data-language="pl" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+            checked>
         <label data-language="pl" class="btn btn-outline-light" for="btnradio1">PL</label>
         <input data-language="en" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
         <label data-language="en" class="btn btn-outline-light" for="btnradio2">EN</label>
@@ -40,7 +43,7 @@
         <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
         <div>
             <h1>Kalkulator podatku od darowizny</h1>
-            <p>Narzędzie do obliczania podatku od darowizn w dowolnej walucie</p>
+            <p>Narzędzie do obliczania podatku od darowizn w walutach obcych</p>
         </div>
     </div>
 
@@ -59,13 +62,15 @@
             <div class="col-sm-8 my-3">
                 <div>
                     <h4 data-text="index1">Kalkulator darowizny w walucie obcej</h4>
-                    <p data-text="index2">to narzędzie do szybkiego i łatwego przeliczenia darowizny otrzymanej w walucie obcej
+                    <p data-text="index2">to narzędzie do szybkiego i łatwego przeliczenia darowizny otrzymanej w
+                        walucie obcej
                         na równowartość w złotówkach wraz z wyliczeniem należnego podatku.</p>
                 </div>
 
                 <div>
                     <h4 data-text="index3">Co to jest darowizna?</h4>
-                    <p data-text="index4">Art. 888 KC: § 1. Przez umowę darowizny darczyńca zobowiązuje się do bezpłatnego świadczenia na rzecz obdarowanego kosztem swego majątku.</p>
+                    <p data-text="index4">Art. 888 KC: § 1. Przez umowę darowizny darczyńca zobowiązuje się do
+                        bezpłatnego świadczenia na rzecz obdarowanego kosztem swego majątku.</p>
                     <p></p>
                 </div>
                 <div>
@@ -83,8 +88,8 @@
                 </div>
                 <div>
                     <div class="countArea">
-                        <div id="toCalc"><a href="./kalkulator.html"><i class="fa-solid fa-calculator"></i>
-                                Kalkulator</a></div>
+                        <div id="toCalc"><a href="./kalkulator.html"><i class="fa-solid fa-calculator">&nbsp;</i><span
+                                    data-text="index8">Kalkulator</span></a></div>
                     </div>
                 </div>
             </div>
@@ -99,37 +104,30 @@
 </body>
 
 <script type="module">
-    localStorage.clear();
-    
+
     import buttonMenu from "./js/helpers/buttonMenu";
     import LanguageChange from "./js/helpers/languageChange";
-    // import languageButtonSetChecked from "./js/helpers/languageButtonSetChecked";
-    import fillText from "./js/helpers/fillText";
-
-    function languageButtonSetChecked(languageButton) {
-    if (localStorage.language) {
-        languageButton.querySelectorAll('[data-language]').forEach(element => element.removeAttribute("checked"));
-        languageButton.querySelector(`[data-language="${localStorage.language}"]`).setAttribute("checked","");
-    }
-}
+    import languageButtonSetChecked from "./js/helpers/languageButtonSetChecked";
 
     const languageButton = document.querySelector("#languageButton");
     const menuOpen = document.querySelector("#burgerButton");
+    const htmlTextElements = document.querySelectorAll("[data-text]");
     
     menuOpen.addEventListener("click", () => {
         buttonMenu()
     });
 
-    
+    // Check if .language key exist in localStorage & set 'checked' to appropriate button.
+    // When localStorage is empty, do nothing ('checked' is default for 'pl' in HTML)
     languageButtonSetChecked(languageButton);
-    new LanguageChange(languageButton.querySelector('[checked]').dataset.language).setLanguage();
-    fillText();
 
+    // Get languagePackJSON from .json file & pass it as object to localStorage. Fill all html-text-elements on page using data from localStorage.
+    new LanguageChange(languageButton.querySelector('[checked]').dataset.language, htmlTextElements).setLanguage();
+
+    // Language select-button event - language change.
     languageButton.addEventListener("pointerdown", e => {
-    new LanguageChange(e.target.dataset.language).setLanguage();
-    fillText();
-})
-
+    new LanguageChange(e.target.dataset.language, htmlTextElements).setLanguage();
+    })
 
 </script>
 

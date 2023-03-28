@@ -1,9 +1,9 @@
-// Return object with tax-sum & comment
-export function countTax(selectedTG, res) {
+// Count tax & return object with tax-sum & comment
+function countTax(selectedTaxGroup, res) {
     const sum = Number(res);
     const taxes = {
-        s: "",
-        c: ""
+        s: "",      //tax-sum
+        c: ""       //tax-comment
     };
     const free1 = 10434;
     const free2 = 7878;
@@ -11,73 +11,74 @@ export function countTax(selectedTG, res) {
     const over1 = 11128;
     const over2 = 22256;
 
-    if (selectedTG ==="taxZero") {
+    if (selectedTaxGroup ==="taxZero") {
         taxes.s = "0.00 PLN";
         if (sum > free1) {
-            taxes.c = "Darowizna przekracza 10434zł. Na zgłoszenie darowizny do US masz pół roku od daty jej przyjęcia. Formularz SD-Z2."
+            taxes.c = localStorage.countTaxZero1;
         } else {
-            taxes.c = "Nie musisz zgłaszać darowizny, jesli suma darowizn od jednego darczyńcy nie przekroczyła 10 434zł w ciągu 5 lat poprzedzających rok, w którym nastąpiła ostatnia darowizna."
+            taxes.c = localStorage.countTaxZero2;
         }
     }
-    if (selectedTG ==="taxOne") {
+    if (selectedTaxGroup ==="taxOne") {
 
         if (sum <= free1) {
             taxes.s = "0.00 PLN";
-            taxes.c = "Nie musisz zgłaszać darowizny, jesli suma darowizn od jednego darczyńcy nie przekroczyła 10 434 zł w ciągu 5 lat poprzedzających rok, w którym nastąpiła ostatnia darowizna."
+            taxes.c = localStorage.countTaxOne1;
         }
         if (sum > free1 && sum <= over1) {
             taxes.s = `${ (0.03*sum).toFixed(2) } PLN`
-            taxes.c = "Podatek to 3%. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxOne2;
         }
         if (sum > over1 && sum <= over2) {
             taxes.s = `${ (0.05*(sum - over1) + 333.90).toFixed(2)} PLN`
-            taxes.c = "Podatek to 333 zł 90 gr i 5% od nadwyżki ponad 11 128 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxOne3;
         }
         if (sum > over2) {
             taxes.s = `${ (0.07*(sum - over2) + 890.30).toFixed(2)} PLN`
-            taxes.c = "Podatek to 890 zł 30 gr i 7% od nadwyżki ponad 22 256 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxOne4;
         }
     }
-    if (selectedTG ==="taxTwo") {
+    if (selectedTaxGroup ==="taxTwo") {
 
         if (sum <= free2) {
             taxes.s = "0.00 PLN";
-            taxes.c = "Nie musisz zgłaszać darowizny, jesli suma darowizn od jednego darczyńcy nie przekroczyła 7 878 zł w ciągu 5 lat poprzedzających rok, w którym nastąpiła ostatnia darowizna."
+            taxes.c = localStorage.countTaxTwo1;
         }
         if (sum > free2 && sum <= over1) {
             taxes.s = `${ (0.07*sum).toFixed(2) } PLN`
-            taxes.c = "Podatek to 7%. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxTwo2;
         }
         if (sum > over1 && sum <= over2) {
             taxes.s = `${ (0.09*(sum - over1) + 779.00).toFixed(2)} PLN`
-            taxes.c = "Podatek to 779 zł 00 gr i 9% od nadwyżki ponad 11 128 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxTwo3;
         }
         if (sum > over2) {
             taxes.s = `${ (0.12*(sum - over2) + 1780.60).toFixed(2)} PLN`
-            taxes.c = "Podatek to 1780 zł 60 gr i 12% od nadwyżki ponad 22 256 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxTwo4;
         }
     }
-    if (selectedTG ==="taxThree") {
+    if (selectedTaxGroup ==="taxThree") {
 
         if (sum <= free3) {
             taxes.s = "0.00 PLN";
-            taxes.c = "Nie musisz zgłaszać darowizny, jesli suma darowizn od jednego darczyńcy nie przekroczyła 5 308 zł w ciągu 5 lat poprzedzających rok, w którym nastąpiła ostatnia darowizna."
+            taxes.c = localStorage.countTaxThree1;
         }
         if (sum > free3 && sum <= over1) {
             taxes.s = `${ (0.12*sum).toFixed(2) } PLN`
-            taxes.c = "Podatek to 12%. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxThree2;
         }
         if (sum > over1 && sum <= over2) {
             taxes.s = `${ (0.16*(sum - over1) + 1335.40).toFixed(2)} PLN`
-            taxes.c = "Podatek to 1335 zł 40 gr i 16% od nadwyżki ponad 11 128 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxThree3;
         }
         if (sum > over2) {
             taxes.s = `${ (0.20*(sum - over2) + 3115.90).toFixed(2)} PLN`
-            taxes.c = "Podatek to 3115 zł 90 gr i 20% od nadwyżki ponad 22 256 zł. Na zgłoszenie darowizny do US masz miesiąc od daty jej przyjęcia. Formularz SD-3."
+            taxes.c = localStorage.countTaxThree4;
         }
-    } else if (!selectedTG) {
-        taxes.s = "brak danych";
-        taxes.c = "Nie wybrano grupy podatkowej.";
+    } else if (!selectedTaxGroup) {
+        taxes.s = localStorage.countTaxInfo1;
+        taxes.c = localStorage.countTaxInfo2;
     }
     return taxes;
 }
+export default countTax;

@@ -1,26 +1,13 @@
-import {
-    setCalendarDefaultDate
-} from "./helpers/setCalendarDefaultDate";
 import buttonMenu from "./helpers/buttonMenu";
-import {
-    groupSelect
-} from "./helpers/groupSelect";
-import {
-    fillChoice
-} from "./helpers/fillChoice";
-import {
-    countResult
-} from "./helpers/countResult";
-import {
-    countTax
-} from "./helpers/countTax";
-import {
-    clearResultArea
-} from "./helpers/clearResultArea";
-import NbpService from './services/nbpService'
-import LanguageChange from "./helpers/languageChange";
+import clearResultArea from "./helpers/clearResultArea";
+import countResult from "./helpers/countResult";
+import countTax from "./helpers/countTax";
+import fillChoice from "./helpers/fillChoice";
+import groupSelect from "./helpers/groupSelect";
 import languageButtonSetChecked from "./helpers/languageButtonSetChecked";
-import fillText from "./helpers/fillText";
+import LanguageChange from "./helpers/languageChange";
+import NbpService from './services/nbpService'
+import setCalendarDefaultDate from "./helpers/setCalendarDefaultDate";
 
 const calendar = document.querySelector("#calendarInput");
 const countArea = document.querySelector("#countArea");
@@ -29,6 +16,7 @@ const currencyChooseMenu = document.querySelector("#currencyChooseMenu");
 const currencyValue = document.querySelector("#currencyValue");
 const curSum = document.querySelector("#curSum");
 const darowizna = document.querySelector("#darowizna");
+const htmlTextElements = document.querySelectorAll("[data-text]");
 const kurs = document.querySelector("#kurs");
 const languageButton = document.querySelector("#languageButton");
 const menuOpen = document.querySelector("#burgerButton");
@@ -47,14 +35,16 @@ let data;
 let selectedTaxGroup;
 let targetID;
 
-
+// Check if .language key exist in localStorage & set 'checked' to appropriate button.
+// When localStorage is empty, do nothing ('checked' is default for 'pl' in HTML)
 languageButtonSetChecked(languageButton);
-new LanguageChange(languageButton.querySelector('[checked]').dataset.language).setLanguage();
-fillText();
 
+// Get languagePackJSON from .json file & pass it as object to localStorage. Fill all html-text-elements on page using data from localStorage.
+new LanguageChange(languageButton.querySelector('[checked]').dataset.language, htmlTextElements).setLanguage();
+
+// Language select-button event - language change.
 languageButton.addEventListener("pointerdown", e => {
-new LanguageChange(e.target.dataset.language).setLanguage();
-fillText();
+    new LanguageChange(e.target.dataset.language, htmlTextElements).setLanguage();
 })
 
 // Set today's date as calendar's value & max range
@@ -73,7 +63,9 @@ taxButtons.addEventListener("click", e => {
 // Currency choose button  
 currencyChoose.addEventListener("click", async () => {
     data = await service.getCurrencyRates(calendar.value);
-    currencyChooseMenu.innerHTML = fillChoice(data.rates); //menu currency-list filling
+
+    //Menu currency-list filling by data from nbpService (currency code & full name)
+    currencyChooseMenu.innerHTML = fillChoice(data.rates);
 })
 
 // Datepicker change event
@@ -106,7 +98,7 @@ currencyChooseMenu.addEventListener("click", e => {
     }
 });
 
-// "Oblicz" button. Return result data or throw errors.
+// "Oblicz / Result" button. Return result data or throw errors.
 countArea.addEventListener("click", () => {
 
     if (calendarValueError !== undefined) {
@@ -120,20 +112,24 @@ countArea.addEventListener("click", () => {
     }
 
     try {
+
+        // Return currency code, result & mid rate
         const {
-            cur,
-            res,
+            code,
+            result,
             mid
-        } = countResult(data.rates, targetID); // return currency name, result & mid rate
-        waluta.innerHTML = `${ cur }`;
-        notowanie.innerHTML = `<p>Notowanie:&nbsp; </p> <p> ${ data.effectiveDate }</p>`;
-        kurs.innerHTML = `<p>Kurs:&nbsp; </p> <p> ${ mid } PLN</p>`;
-        darowizna.innerHTML = `<p>Darowizna:&nbsp; </p> <p style="color: green"> ${ res } PLN</p>`;
+        } = countResult(data.rates, targetID);
+        waluta.innerHTML = `${ code }`;
+        notowanie.innerHTML = `<p>${localStorage.appNotowanie}:&nbsp; </p> <p> ${ data.effectiveDate }</p>`;
+        kurs.innerHTML = `<p>${localStorage.appKurs}:&nbsp; </p> <p> ${ mid } PLN</p>`;
+        darowizna.innerHTML = `<p>${localStorage.appDarowizna}:&nbsp; </p> <p style="color: green"> ${ result } PLN</p>`;
+
+        // Count tax & return object with tax-sum & comment
         const {
-            s,
-            c
-        } = countTax(selectedTaxGroup, res); //return tax-sum & comment
-        podatek.innerHTML = `<p>Podatek:&nbsp; </p> <p style="color: red"> ${ s }</p>`;
+            s,      //tax-sum
+            c       //tax-comment
+        } = countTax(selectedTaxGroup, result);
+        podatek.innerHTML = `<p>${localStorage.appPodatek}:&nbsp; </p> <p style="color: red"> ${ s }</p>`;
         uwagi.innerText = `${ c }`;
     } catch (e) {
         console.log("Należy uzupełnić pola!", e)
@@ -142,7 +138,7 @@ countArea.addEventListener("click", () => {
     //Errors messages
     try {
         if (!calendar.checkValidity()) {
-            throw "WYBIERZ DATĘ"
+            throw `${localStorage.appErrorCalendar}`
         };
     } catch (err1) {
         clearResultArea(waluta, notowanie, kurs, darowizna, podatek, uwagi);
@@ -153,7 +149,7 @@ countArea.addEventListener("click", () => {
 
     try {
         if (!curSum.checkValidity()) {
-            throw "WPROWADŹ WARTOŚĆ"
+            throw `${localStorage.appErrorCurSum}`
         }
     } catch (err2) {
         clearResultArea(waluta, notowanie, kurs, darowizna, podatek, uwagi);
@@ -164,7 +160,7 @@ countArea.addEventListener("click", () => {
 
     try {
         if (!data) {
-            throw "WYBIERZ WALUTĘ"
+            throw `${localStorage.appErrorCurrencyMenu}`
         }
     } catch (err3) {
         clearResultArea(waluta, notowanie, kurs, darowizna, podatek, uwagi);
