@@ -121,7 +121,7 @@
     // When localStorage is empty, do nothing ('checked' is default for 'pl' in HTML)
     languageButtonSetChecked(languageButton);
 
-    // Get languagePackJSON from .json file & pass it as object to localStorage. Fill all html-text-elements on page using data from localStorage.
+    // Get languagePackJSON from .json file & pass it as object to localStorage. Fill all html-text-elements on page using data from localStorage
     new LanguageChange(languageButton.querySelector('[checked]').dataset.language, htmlTextElements).setLanguage();
 
     // Language select-button event - language change.
