@@ -1,18 +1,22 @@
 //Menu currency-list filling by data from nbpService (currency code & full name)
 function fillChoice(dataAll) {
-    let textO = "";
-    let textH = "";
-    let text = "";
-    for (let e of dataAll) {
-        if (e.code ==="USD" || e.code ==="EUR") {
-            textH += `<a id="${e.code}" class="dropdown-item" href="#"><b>${e.code}</b> [${e.currency}]</a>\n`;
-            continue;
-        }
-        textO += `<a id="${e.code}" class="dropdown-item" href="#"><b>${e.code}</b> [${e.currency}]</a>\n`;
+  let textRestCurrencies = "";
+  let textUSDEUR = "";
+  let textAll = "";
+  let currency = "";
+
+  for (let e of dataAll) {
+    currency = localStorage[e.code];
+    if (e.code === "USD" || e.code === "EUR") {
+      textUSDEUR += `<a id="${e.code}" class="dropdown-item" href="#"><b>${e.code}</b> ${currency}</a>\n`;
+      continue;
     }
-    textH += `<div class="dropdown-divider"></div>\n`;
-    text += textH;
-    text += textO;
-    return text;
+    textRestCurrencies += `<a id="${e.code}" class="dropdown-item" href="#"><b>${e.code}</b> ${currency}</a>\n`;
+  }
+
+  textUSDEUR += `<div class="dropdown-divider"></div>\n`;
+  textAll += textUSDEUR;
+  textAll += textRestCurrencies;
+  return textAll;
 }
 export default fillChoice;

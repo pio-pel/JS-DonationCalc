@@ -1,127 +1,162 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Kalkulator darowizny z walucie obcej</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="scss/main.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/4c0922e2e2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/other.js" defer></script>
+  </head>
 
-<head>
-  <title>Kalkulator darowizny z walucie obcej</title>
-  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="scss/main.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-  </script>
-  <script src="https://kit.fontawesome.com/4c0922e2e2.js" crossorigin="anonymous"></script>
-  <script type="module" src="js/app.js" defer></script>
-
-</head>
-
-
-
-<body>
-  <div id="burgerButton" style="display: inline">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-
-  <div id="mySidenav" class="sidenav">
-    <a href="./index.html"><i class="fa-solid fa-house">&nbsp;</i><span data-text="mySidenav1">główna</span></a>
-    <a href="./kalkulator.html"><i class="fa-solid fa-calculator">&nbsp;</i><span
-        data-text="mySidenav2">kalkulator</span></a>
-    <a href="./formularze.html"><i class="fa-solid fa-file">&nbsp;</i><span data-text="mySidenav3">formularze</span></a>
-    <a href="./filmy.html"><i class="fa-solid fa-film">&nbsp;</i><span data-text="mySidenav4">filmy</span></a>
-  </div>
-
-  <div id="languageButton" class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input data-language="pl" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label data-language="pl" class="btn btn-outline-light" for="btnradio1">PL</label>
-    <input data-language="en" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label data-language="en" class="btn btn-outline-light" for="btnradio2">EN</label>
-  </div>
-  <div id="header" class="container-fluid pb-3 pt-5 text-white">
-    <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
-    <div>
-      <h1>Kalkulator podatku od darowizny</h1>
-      <p>Narzędzie do obliczania podatku od darowizn w walutach obcych</p>
+  <body>
+    <div id="burgerButton" style="display: inline">
+      <i class="fa-solid fa-bars"></i>
     </div>
-  </div>
 
-  <div id="main" class="container p-3">
-    <div class="row">
-      <div class="col-md d-flex flex-column my-3 align-items-center">
-        <div class="card" style="width: 18rem;">
-          <img src="./img/sdz2.jpg" class="card-img-top" alt="SD-Z2">
-          <div class="card-body">
-            <h5 data-text="formularzeOne1" class="card-title">Formularz SD-Z2</h5>
-            <p data-text="formularzeOne2" class="card-text">Zgłoszenie o nabyciu własności rzeczy lub praw majątkowych
-            </p>
-            <a data-text="formularzeOpen" href="https://www.podatki.gov.pl/media/4148/sd-z2-06-014.pdf" target="_blank"
-              class="btn btn-success">Otwórz</a>
+    <div id="offCanvasMenu" class="offCanvasMenuClass">
+      <a href="./index.html"
+        ><i class="fa-solid fa-house">&nbsp;</i
+        ><span data-text="offCanvasMenu1">główna</span></a
+      >
+      <a href="./kalkulator.html"
+        ><i class="fa-solid fa-calculator">&nbsp;</i
+        ><span data-text="offCanvasMenu2">kalkulator</span></a
+      >
+      <a href="./formularze.html"
+        ><i class="fa-solid fa-file">&nbsp;</i
+        ><span data-text="offCanvasMenu3">formularze</span></a
+      >
+      <a href="./filmy.html"
+        ><i class="fa-solid fa-film">&nbsp;</i
+        ><span data-text="offCanvasMenu4">filmy</span></a
+      >
+    </div>
+
+    <div
+      id="languageButton"
+      class="btn-group"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      <input
+        data-language="pl"
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio1"
+        autocomplete="off"
+        checked
+      />
+      <label data-language="pl" class="btn btn-outline-light" for="btnradio1"
+        >PL</label
+      >
+      <input
+        data-language="en"
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio2"
+        autocomplete="off"
+      />
+      <label data-language="en" class="btn btn-outline-light" for="btnradio2"
+        >EN</label
+      >
+    </div>
+    <div id="header" class="container-fluid pb-3 pt-5 text-white">
+      <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
+      <div>
+        <h1>Kalkulator podatku od darowizny</h1>
+        <p>Narzędzie do obliczania podatku od darowizn w walutach obcych</p>
+      </div>
+    </div>
+
+    <div id="main" class="container p-3">
+      <div class="row">
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sdz2.jpg" class="card-img-top" alt="SD-Z2" />
+            <div class="card-body">
+              <h5 data-text="formOne1" class="card-title">Formularz SD-Z2</h5>
+              <p data-text="formOne2" class="card-text">
+                Zgłoszenie o nabyciu własności rzeczy lub praw majątkowych
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4148/sd-z2-06-014.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md d-flex flex-column my-3 align-items-center">
-        <div class="card" style="width: 18rem;">
-          <img src="./img/sd3.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 data-text="formularzeTwo1" class="card-title">Formularz SD-3</h5>
-            <p data-text="formularzeTwo2" class="card-text">Zeznanie podatkowe o nabyciu rzeczy lub praw majątkowych</p>
-            <a data-text="formularzeOpen" href="https://www.podatki.gov.pl/media/4142/sd-3-06-015.pdf" target="_blank"
-              class="btn btn-success">Otwórz</a>
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sd3.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 data-text="formTwo1" class="card-title">Formularz SD-3</h5>
+              <p data-text="formTwo2" class="card-text">
+                Zeznanie podatkowe o nabyciu rzeczy lub praw majątkowych
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4142/sd-3-06-015.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md d-flex flex-column my-3 align-items-center">
-        <div class="card" style="width: 18rem;">
-          <img src="./img/sd3a.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 data-text="formularzeThree1" class="card-title">Załącznik SD-3A</h5>
-            <p data-text="formularzeThree2" class="card-text">Załącznik do deklaracji SD-3 -&nbsp;inf. o pozostałych
-              podatnikach</p>
-            <a data-text="formularzeOpen" href="https://www.podatki.gov.pl/media/4144/sd-3a-06-014.pdf" target="_blank"
-              class="btn btn-success">Otwórz</a>
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sd3a.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 data-text="formThree1" class="card-title">Załącznik SD-3A</h5>
+              <p data-text="formThree2" class="card-text">
+                Załącznik do deklaracji SD-3 -&nbsp;inf. o pozostałych
+                podatnikach
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4144/sd-3a-06-014.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
+            </div>
           </div>
         </div>
+        <h5 data-text="formInfo" class="p-3 text-center">
+          Więcej informacji na stronie:
+        </h5>
+        <h5 class="text-center">
+          <a
+            href="https://www.podatki.gov.pl/pcc-sd/rozliczenie-podatku-sd-od-darowizny/"
+            target="_blank"
+            >podatki.gov.pl</a
+          >
+        </h5>
       </div>
-      <h5 data-text="formularzeInfo" class="p-3 text-center">Więcej informacji na stronie: </h5>
-      <h5 class="text-center"><a href="https://www.podatki.gov.pl/pcc-sd/rozliczenie-podatku-sd-od-darowizny/"
-          target="_blank">podatki.gov.pl</a></h5>
     </div>
-  </div>
-
-
-  <div id="footer" class="container-fluid my-1 text-white">
-    <div><i class="fa-solid fa-copyright"></i> Piotr Pelikan
+    <div id="footer" class="container-fluid my-1 text-white">
+      <div><i class="fa-solid fa-copyright"></i> Piotr Pelikan</div>
     </div>
-  </div>
-
-</body>
-
-<script type="module">
-    import buttonMenu from "./js/helpers/buttonMenu";
-    import LanguageChange from "./js/helpers/languageChange";
-    import languageButtonSetChecked from "./js/helpers/languageButtonSetChecked";
-
-    const languageButton = document.querySelector("#languageButton");
-    const menuOpen = document.querySelector("#burgerButton");
-    const htmlTextElements = document.querySelectorAll("[data-text]");
-    
-    menuOpen.addEventListener("click", () => {
-        buttonMenu()
-    });
-
-    // Check if .language key exist in localStorage & set 'checked' to appropriate button.
-    // When localStorage is empty, do nothing ('checked' is default for 'pl' in HTML)
-    languageButtonSetChecked(languageButton);
-
-    // Get languagePackJSON from .json file & pass it as object to localStorage. Fill all html-text-elements on page using data from localStorage.
-    new LanguageChange(languageButton.querySelector('[checked]').dataset.language, htmlTextElements).setLanguage();
-
-    // Language select-button event - language change.
-    languageButton.addEventListener("pointerdown", e => {
-    new LanguageChange(e.target.dataset.language, htmlTextElements).setLanguage();
-    })
-
-</script>
-
+  </body>
 </html>

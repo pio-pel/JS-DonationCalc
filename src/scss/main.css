@@ -1,8 +1,5 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 body {
+  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,7 +10,7 @@ body {
   position: absolute;
   top: 0px;
   left: 10px;
-  transition: margin-top .4s;
+  transition: margin-top 0.4s;
   color: #dddddd;
   font-size: 40px;
   cursor: pointer;
@@ -21,10 +18,12 @@ body {
 
 #burgerButton:hover {
   color: #ff9925;
-  transition: .4s;
+  transition: 0.4s;
 }
 
-#languageButton, #btnradio1, #btnradio2 {
+#languageButton,
+#btnradio1,
+#btnradio2 {
   position: absolute;
   top: 8px;
   right: 10px;
@@ -46,7 +45,7 @@ body {
   padding-left: 15px;
 }
 
-.sidenav {
+.offCanvasMenuClass {
   height: 0px;
   width: 100%;
   position: fixed;
@@ -58,7 +57,7 @@ body {
   transition: 0.4s;
 }
 
-.sidenav a {
+.offCanvasMenuClass a {
   text-align: left;
   margin-left: 20px;
   margin-top: 30px;
@@ -66,11 +65,11 @@ body {
   font-size: 25px;
   color: #999999;
   display: block;
-  transition: .4s;
+  transition: 0.4s;
   text-shadow: none;
 }
 
-.sidenav a:hover {
+.offCanvasMenuClass a:hover {
   color: white;
 }
 
@@ -142,20 +141,21 @@ body {
 }
 
 input {
+  display: block;
   width: 200px;
-  height: 40px;
+  font-size: large;
   text-align: center;
   font-weight: bold;
   background-color: white;
   border: 2px solid #004152;
   border-radius: 3px;
   box-shadow: 2px 2px 4px #505050;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  padding: 5px;
+  margin: 1px;
 }
 
 #calendarInput:invalid,
-#curSum:invalid {
+#enteredSum:invalid {
   border-color: #a00000;
 }
 
@@ -168,12 +168,6 @@ input:focus {
 .countArea:hover,
 .trButtons:hover {
   outline: 3px solid #ff9925;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 #currencyChooseMenu {
@@ -210,13 +204,13 @@ input::-webkit-inner-spin-button {
 }
 
 #resultHiddenArea,
-#uwagi {
+#resultComments {
   opacity: 0;
 }
 
 .hid {
   animation-name: zoom;
-  animation-duration: .8s;
+  animation-duration: 0.8s;
   animation-fill-mode: forwards;
 }
 
