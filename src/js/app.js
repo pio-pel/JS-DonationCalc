@@ -5,6 +5,7 @@ import countResult from "./helpers/countResult";
 import countTax from "./helpers/countTax";
 import fillChoice from "./helpers/fillChoice";
 import groupSelect from "./helpers/groupSelect";
+import inputValidation from "./helpers/inputValidation";
 import languageButtonSetChecked from "./helpers/languageButtonSetChecked";
 import LanguageChange from "./helpers/languageChange";
 import NbpService from "./services/nbpService";
@@ -98,16 +99,7 @@ calendar.addEventListener("change", () => {
 
 // Currency value input event
 enteredSum.addEventListener("input", () => {
-  if (enteredSum.value.length > enteredSum.maxLength)
-    enteredSum.value = enteredSum.value.slice(0, enteredSum.maxLength); //input max length 9 digits
-  if (!enteredSum.value.match(/^[.0-9]*$/))
-    enteredSum.value = enteredSum.value.slice(0, -1); //digits & dot (.) only
-  if (enteredSum.value.match(/[.]/))
-    //max 2 digits after dot
-    enteredSum.value = enteredSum.value.slice(
-      0,
-      enteredSum.value.indexOf(".") + 3
-    );
+  inputValidation(enteredSum);
   currencyInputError && currencyInputError.remove();
 });
 
@@ -117,8 +109,8 @@ currencyChooseMenu.addEventListener("click", (e) => {
   if (e.target.id.length !== 3) {
     return;
   }
-  currencyChoose.innerText = e.target.id;
   targetID = e.target.id;
+  currencyChoose.innerText = targetID;
   currencySelectError && currencySelectError.remove();
 });
 
