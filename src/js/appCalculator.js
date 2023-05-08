@@ -41,7 +41,7 @@ let currencyInputError;
 let currencySelectError;
 let data;
 let selectedTaxGroup;
-let targetID;
+let targetID; 
 
 // Check if .language key exist in localStorage & set 'checked' to appropriate button.
 // When localStorage is empty, 'checked' is default for 'pl' in HTML
