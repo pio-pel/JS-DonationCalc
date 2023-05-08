@@ -24,7 +24,7 @@
   </head>
 
   <body>
-    <div id="burgerButton">
+    <div id="burgerButton" style="display: inline">
       <i class="fa-solid fa-bars"></i>
     </div>
 
@@ -77,7 +77,6 @@
         >EN</label
       >
     </div>
-
     <div id="header" class="container-fluid pb-3 pt-5 text-white">
       <i id="calcIcon" class="fa-solid fa-calculator fa-5x"></i>
       <div>
@@ -86,69 +85,76 @@
       </div>
     </div>
 
-    <div id="main" class="container">
+    <div id="main" class="container p-3">
       <div class="row">
-        <div class="col-lg-2 my-3">
-          <div class="d-flex align-items-center" style="height: 100%">
-            <div>
-              <i
-                id="donationIco"
-                class="fa-solid fa-hand-holding-dollar fa-8x"
-              ></i>
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sdz2.jpg" class="card-img-top" alt="SD-Z2" />
+            <div class="card-body">
+              <h5 data-text="formOne1" class="card-title">Formularz SD-Z2</h5>
+              <p data-text="formOne2" class="card-text">
+                Zgłoszenie o nabyciu własności rzeczy lub praw majątkowych
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4148/sd-z2-06-014.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
             </div>
           </div>
         </div>
 
-        <div class="col-lg-8 my-3">
-          <div>
-            <h4 data-text="index1">Kalkulator darowizny w walucie obcej</h4>
-            <p data-text="index2">
-              to narzędzie do szybkiego i łatwego przeliczenia darowizny
-              otrzymanej w walucie obcej na równowartość w złotówkach wraz z
-              wyliczeniem należnego podatku.
-            </p>
-          </div>
-
-          <div>
-            <h4 data-text="index3">Co to jest darowizna?</h4>
-            <p data-text="index4">
-              Art. 888 KC: § 1. Przez umowę darowizny darczyńca zobowiązuje się
-              do bezpłatnego świadczenia na rzecz obdarowanego kosztem swego
-              majątku.
-            </p>
-            <p></p>
-          </div>
-          <div>
-            <h4 data-text="index5">
-              Co należy zrobić, kiedy otrzyma się darowiznę w walucie obcej?
-            </h4>
-            <p data-text="index6">
-              Przeliczyć wartość darowizny po średnim kursie NBP z dnia, w
-              którym ją otrzymaliśmy, sprawdzić, czy należy zapłacic podatek i w
-              jakiej wysokości, a na koniec zgłosić darowiznę na formularzu SD-3
-              lub SD-Z2 do Urzędu Skarbowego.
-            </p>
-            <p data-text="index7">
-              Kalkulator wykona za Ciebie niezbędne obliczenia. W menu ->
-              formularze znajdziesz dokumenty do zgłoszenia darowizny ze strony
-              podatki.gov.pl. W menu -> filmy znajdują się krótkie poradniki
-              dot. darowizn przygotowane przez Ministerstwo Finansów.
-            </p>
-          </div>
-          <div>
-            <div class="countArea">
-              <div id="toCalc">
-                <a href="./calculator.html"
-                  ><i class="fa-solid fa-calculator">&nbsp;</i
-                  ><span data-text="index8">Kalkulator</span></a
-                >
-              </div>
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sd3.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 data-text="formTwo1" class="card-title">Formularz SD-3</h5>
+              <p data-text="formTwo2" class="card-text">
+                Zeznanie podatkowe o nabyciu rzeczy lub praw majątkowych
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4142/sd-3-06-015.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
             </div>
           </div>
         </div>
+        <div class="col-lg d-flex flex-column my-3 align-items-center">
+          <div class="card" style="width: 18rem">
+            <img src="./img/sd3a.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 data-text="formThree1" class="card-title">Załącznik SD-3A</h5>
+              <p data-text="formThree2" class="card-text">
+                Załącznik do deklaracji SD-3 -&nbsp;inf. o pozostałych
+                podatnikach
+              </p>
+              <a
+                data-text="formOpen"
+                href="https://www.podatki.gov.pl/media/4144/sd-3a-06-014.pdf"
+                target="_blank"
+                class="btn btn-success"
+                >Otwórz</a
+              >
+            </div>
+          </div>
+        </div>
+        <h5 data-text="formInfo" class="p-3 text-center">
+          Więcej informacji na stronie:
+        </h5>
+        <h5 class="text-center">
+          <a
+            href="https://www.podatki.gov.pl/pcc-sd/rozliczenie-podatku-sd-od-darowizny/"
+            target="_blank"
+            >podatki.gov.pl</a
+          >
+        </h5>
       </div>
     </div>
-
     <div id="footer" class="container-fluid my-1 text-white">
       <div><i class="fa-solid fa-copyright"></i> Piotr Pelikan</div>
     </div>
